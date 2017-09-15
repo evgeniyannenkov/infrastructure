@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  web:
+    build: ./../interview.io
+    volumes:
+      - ./../interview.io:/usr/src/app/
+    ports:
+      - 5001:5001
+    depends_on:
+      - mongo
