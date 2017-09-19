@@ -1,0 +1,20 @@
+{
+  "name": "infrastructure",
+  "version": "1.0.0",
+  "description": "Configuration parameters for Interview.io project",
+  "scripts": {
+    "clone": "cd ../ && git clone $npm_package_config_web",
+    "start": "docker-compose up",
+    "stop": "docker-compose down",
+    "rebuild": "docker-compose down && docker-compose build && docker-compose up",
+    "destroy": "docker-compose down && docker stop $(docker ps -a -q) && docker rmi $(docker images -q)",
+    "init": "npm run clone && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evgeniyannenkov/infrastructure.git"
+  },
+  "config": {
+    "web": "git@github.com:evgeniyannenkov/interview.io.git"
+  }
+}
